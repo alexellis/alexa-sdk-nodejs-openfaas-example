@@ -1,0 +1,8 @@
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  william-skill:
+    lang: node10-express
+    handler: ./william-skill
+    image: alexellis2/william-skill:0.2
