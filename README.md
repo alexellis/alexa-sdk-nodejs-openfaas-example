@@ -14,7 +14,7 @@ William is a skill which is based upon the [Hello World](https://github.com/alex
 https://my-openfaas.com/function/william-skill
 ```
 
-If you don't want to setup your own TLS for your OpenFaaS server, or if it's behind a firewall then use the ngrok tool from ngrok.com
+If you don't want to setup your own TLS for your OpenFaaS server, or if it's behind a firewall then use the [ngrok to create a tunnel with HTTPS](https://ngrok.com).
 
 ### Setup your intent
 
@@ -63,6 +63,9 @@ Go to the JSON editor and paste in the following:
 }
 ```
 
+* Now click *Save Model*
+* Finally click *Build Model*
+
 ### Deploy William
 
 * Now edit william/stack.yml and replace "alexellis2" for your own Docker Hub username
@@ -93,13 +96,15 @@ And here's the result!
 
 ## Extend the example
 
-See if you can get William to say Hello in another language such as Spanish: Hola!
+See if you can get William to say Hello in another language such as German: Hallo!
+
+![](./console-hallo.png)
 
 Now edit the `HelloWorldIntentHandler` in `william-skill/handler.js` and run `faas-cli up`
 
-### Adapting the Skills SDK
+### Adapting the Skills SDK to the `node10-express` handler
 
-This was simply a case of adding the following:
+Adapting the Skills SDK to the OpenFaaS `node10-express` template handler was simply a case of wrapping the handler. Your mileage may vary, and you may need to perform additional tweaks.
 
 ```js
 module.exports = function(event, context) {
